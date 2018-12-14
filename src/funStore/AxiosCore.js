@@ -38,13 +38,12 @@ class AxiosCore {
             if (data.code == 1200) {
                 return data;
             }
-            // 2.token过期
-            if (data.code == 1401) {
-                // console.log(1401)
-                AuthProvider.onRefreshToken()//刷新token  重新登录
-                return this.request(options) //刷新接口请求
-            }
 
+            // 2.unionId无效 重新登录/token过期
+            if (data.code == 1401||data.code == 1406) {
+                // AuthProvider.onRefreshToken()//刷新token  重新登录
+
+            }
             return data
         }, (error) => {
             // 4.系统错误，比如500、404等

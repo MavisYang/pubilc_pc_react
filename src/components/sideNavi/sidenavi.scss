@@ -1,10 +1,12 @@
-@import "../../assets/custom.scss";
+@import "../../assets/css/custom";
 .naviBox {
   width: 134px;
   height: 100%;
-  background: #1E2220;
+  //background: #1E2220;
   display: flex;
   flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid #E9EBEE;
   z-index: 99;
   transition: width .4s;
   .avatar {
@@ -20,7 +22,7 @@
     }
     p {
       @extend %font-16px;
-      color: #FFFFFF;
+      color: #485767;
       text-align: center;
     }
   }
@@ -37,13 +39,17 @@
   @extend %font-14px-400;
   color: #8D969F;
   .naviText {
-    padding-left: 62px;
+    //padding-left: 62px;
+
     height: 52px;
     line-height: 52px;
     position: relative;
     cursor: pointer;
+    border-left: 5px solid transparent;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
     .navi-icon {
-      @extend %iconBackground;
+      //@extend %iconBackground;
       width: 28px;
       height: 28px;
       position: absolute;
@@ -65,9 +71,13 @@
         background-position: -54px -131px;
       }
     }
+    &.active{
+      border-left: 5px solid $blue;
+      background: #EEF6FF;
+    }
     &.active,
     &:hover {
-      color: $green;
+      color: $blue;
       font-weight: 500;
       .icon-home {
         background-position: -54px -159px;
@@ -106,8 +116,8 @@
 
 .secondNavi .naviText{
   &::after {
-    @extend %iconBackground;
-    background-position: -14px -132px;
+    //@extend %iconBackground;
+    //background-position: -14px -132px;
     width: 20px;
     height: 20px;
     position: absolute;

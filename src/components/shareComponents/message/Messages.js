@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import "./message.css"
+import "./message.scss"
 
 let setTimeOuttimer;
 
@@ -39,7 +39,9 @@ export default class Messages extends Component {
     }
 
     render() {
+
         const { showStatus, showText, reqStatus } = this.state;
+        console.log(reqStatus,'reqStatus===')
         return (<div className="messages-main">{
             showStatus ? <div
                 className={
@@ -66,7 +68,7 @@ export default class Messages extends Component {
                                             (reqStatus === 203 ? "messages-main-icon error" :
                                                 "messages-main-icon other")))
                             }
-                        ></span>
+                        />
                 }
                 <span>{showText}</span>
             </div> : ""

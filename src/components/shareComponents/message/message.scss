@@ -1,4 +1,3 @@
-@import '../../../assets/css/custom.scss';
 .messages-main {
     .messages-main-content {
         display: flex;
@@ -35,7 +34,7 @@
             color: #39C272;
         }
         .messages-main-icon {
-            @extend %iconBackground;
+            //@extend %iconBackground;
             width: 24px;
             height: 24px;
             margin-right: 10px;

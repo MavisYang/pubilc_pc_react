@@ -13,7 +13,7 @@ export default class TopNavi extends Component{
     }
     render(){
         return (
-            <div className='header'>
+            <div className='top-header'>
                 <div className="logout" onClick={this.logoutHandle}>
                     <span className="icon"/>
                     退出

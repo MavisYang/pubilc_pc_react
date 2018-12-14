@@ -5,45 +5,23 @@ let naviInfo = [
 
     {
         id: '1',
-        "code": "home",
-        "name": "首页",
+        "code": "review",
+        "name": "打款审核",
         "orderSeq": 1,
-        "target": "/home",
+        "target": "/review",
         "status": 1,
         "selected": null,
         "children": null
     }, {
         id: '2',
-        "code": "delivery",
-        "name": "投放",
+        "code": "feedback",
+        "name": "问题反馈",
         "orderSeq": 4,
-        "target": "/delivery",
+        "target": "/feedback",
         "handleRight": "HR_CUSTOMIZED_ROBOT;HR_TRIAL_GROUP",
         "status": 1,
         "selected": null,
-        "children": [{
-            id: '3',
-            "code": "RMScope",
-            "name": "素材管理",
-            "orderSeq": 1,
-            "target": "/manage",
-            "handleRight": "HR_CUSTOMIZED_ROBOT;HR_TRIAL_GROUP",
-            "status": 1,
-            "parentId": "2617d635-2520-4cab-afef-74fd6d3754c8",
-            "selected": null,
-            "children": null
-        }, {
-            id: '4',
-            "code": "UMScope",
-            "name": "任务投放",
-            "orderSeq": 2,
-            "target": "/task",
-            "handleRight": "HR_CUSTOMIZED_ROBOT;HR_TRIAL_GROUP",
-            "status": 1,
-            "parentId": "2617d635-2520-4cab-afef-74fd6d3754c8",
-            "selected": null,
-            "children": null
-        }]
+        "children": null
     }
 ]
 
@@ -82,7 +60,8 @@ class NaviItem extends Component {
         return (
             <div className={`naviItem ${navi.children?'secondNavi':''}`}>
                 <div className={`naviText ${activeFlag?'active':''} ${navi.selected?'expand':''}`} onClick={this.clickHandle}>
-                    <span className={`navi-icon ${dataMap[navi.code]}`}/>
+                    {/*<span className={`navi-icon ${dataMap[navi.code]}`}/>*/}
+                    {/*<span className={`navi-icon`}/>*/}
                     <span>{navi.name}</span>
                 </div>
                 {navi.children ? <SubNavi navi={navi} subNavi={navi.children} expand={navi.selected} history={history} /> : ''}
