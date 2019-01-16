@@ -41,7 +41,6 @@ export default class Messages extends Component {
     render() {
 
         const { showStatus, showText, reqStatus } = this.state;
-        console.log(reqStatus,'reqStatus===')
         return (<div className="messages-main">{
             showStatus ? <div
                 className={
