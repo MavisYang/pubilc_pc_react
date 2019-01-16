@@ -2,6 +2,8 @@ import Axios from 'axios'
 import {API_PATH} from '../constants/OriginName'
 import AuthProvider from '../funStore/AuthProvider'
 import {getCookie} from '../funStore/CommonFun'
+
+var time = 0
 class AxiosCore {
     constructor() {
         this.options = {
@@ -35,16 +37,23 @@ class AxiosCore {
         instance.interceptors.response.use((res) => {
             let {data} = res
             // 1.成功 返回的格式{code:200,data:{...},message:'...'}
-            if (data.code == 1200) {
+            // 2.unionId无效 重新登录/token过期
+            if (data.code === 1401 || data.code === 1406) {
+                if (time < 10) {
+                    time += 1;
+                    return AuthProvider.onRefreshToken().then(resData => {
+                        if (resData.code === 1200) {
+                            return this.request(options).then(res => {
+                                return res
+                            })
+                        }
+                    })//刷新token  重新登录
+                } else {
+                    time = 20
+                }
+            } else {
                 return data;
             }
-
-            // 2.unionId无效 重新登录/token过期
-            if (data.code == 1401||data.code == 1406) {
-                // AuthProvider.onRefreshToken()//刷新token  重新登录
-
-            }
-            return data
         }, (error) => {
             // 4.系统错误，比如500、404等
             // if(error&&error.response){
