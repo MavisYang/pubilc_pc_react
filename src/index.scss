@@ -28,7 +28,41 @@ ul li {
 
 a, button, input, div {
     -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
-    -webkit-appearance: none;
+    -webkit-appearance: none;//去除默认样式
+}
+
+/**--------table-------*/
+/**使用<thead>, <tbody>和<tfoot> 将表格分割成逻辑块*/
+
+table{
+  table-layout: fixed; //可以根据列标题的宽度来规定列的宽度
+  border-collapse: collapse;//让边框合为一条
+  width: 100%;
+  border: 1px solid #999;
+}
+
+
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+table th,table td{
+  text-align: center;
+  vertical-align: middle;
+}
+th, td {
+  padding: 20px;
 }
 
 input::-webkit-input-placeholder {
@@ -111,6 +145,7 @@ code {
     overflow: auto;
     font-family: PingFangSC;
     background: #f3f3f3;
+  position: relative;
 }
 .wrapper-container{
     min-width: 1080px;
@@ -118,3 +153,40 @@ code {
     padding: 30px;
     box-sizing: border-box;
 }
+
+$gray-bg: #f0f1f3;
+
+@mixin boxShadow($z,$y,$r,$color){
+ box-shadow: $z,$y,$r,$color;
+
+  //第一个长度值是水平偏移量（horizontal offset ）——即向右的距离，阴影被从原始的框中偏移(如果值为负的话则为左)。
+  //第二个长度值是垂直偏移量（vertical offset）——即阴影从原始盒子中向下偏移的距离(或向上，如果值为负)。
+  //第三个长度的值是模糊半径（blur radius）——在阴影中应用的模糊度。
+  //颜色值是阴影的基本颜色（base color）。
+
+}
+
+.boxShadow{
+  box-shadow: 1px 1px 1px black,
+  inset 2px 3px 5px rgba(0,0,0,0.3),
+  inset -2px -3px 5px rgba(255,255,255,0.5);
+}
+
+//下降的阴影
+.filter{
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.7));
+  filter:drop-shadow(5px 5px 5px rgba(0,0,0,0.7));
+
+}
+
+@mixin fontSize($f, $w) {
+  font-family: "PingFang SC";
+  font-size: $f+px;
+  font-weight: $w;
+}
+
+@mixin widthHight($w, $h) {
+  width: $w+px;
+  height: $h+px;
+}
+

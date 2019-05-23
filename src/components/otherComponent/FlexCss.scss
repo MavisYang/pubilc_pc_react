@@ -1,0 +1,32 @@
+
+
+button{
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  box-shadow: 6px 6px 6px rgba(12,34,45,0.8);
+  background: orange;
+  cursor: pointer;
+  margin: 20px;
+}
+
+ul{
+  display: flex;
+  flex-wrap: wrap;//子代确实超出了它们的容器
+}
+li{
+  //width: 200px;
+  height: 100px;
+  background: #58A7F8;
+  margin: 50px;
+  //flex: 200px;//flex:200px 1;
+  flex: 1;//每个元素占用空间都是相等的
+}
+
+li:nth-of-type(3) {
+  flex: 2;
+}
+li:nth-of-type(2) {
+  flex: 3 200px;
+}

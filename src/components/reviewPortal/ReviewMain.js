@@ -9,6 +9,7 @@ import {phoneVerify,sendEvent} from '../../funStore/CommonFun'
 import {review_list, review, export_excel} from '../../funStore/CommonPort'
 import {API_URL} from "../../constants/Api";
 import '../../assets/css/reviewIndex.scss'
+
 export default class ReviewMain extends Component {
     constructor(props) {
         super(props)
@@ -49,6 +50,12 @@ export default class ReviewMain extends Component {
         review_list(url, params).then(resData => {
             if (resData.code === 1200 && resData.data != null) {
                 this.pullData(resData)
+
+
+
+                this.props.reviewReducer.data=resData
+                console.log(this.props.reviewReducer,'this.props.reviewReducer')
+
             }
         })
     }

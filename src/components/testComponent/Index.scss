@@ -1,0 +1,30 @@
+
+//div垂直居中
+.divCenter{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+//div中的内容垂直居中
+.contentCenter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testView{
+  width: 200px;
+  height: 200px;
+  background: #5DD18D;
+}
+.buttonStyle{
+  width: 100px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  background: #5DD18D;
+  color:#fff;
+  margin: 10px;
+  cursor: pointer;
+}

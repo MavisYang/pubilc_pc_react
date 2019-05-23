@@ -1,4 +1,7 @@
-import React from 'react'
+/**
+ * 下载不是链接的excel文件、需要做处理
+ */
+
 const DownloadFile = (blobData, type, filename) => {
     var blob = new Blob([blobData], { type });
     var a = document.createElement("a");

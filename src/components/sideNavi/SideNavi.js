@@ -22,6 +22,26 @@ let naviInfo = [
         "status": 1,
         "selected": null,
         "children": null
+    },
+    {
+        id: '3',
+        "code": "testview",
+        "name": "测试专用",
+        "orderSeq": 4,
+        "target": "/testview",
+        "status": 1,
+        "selected": null,
+        "children": [
+            {
+                id: '31',
+                "code": "lifeCycle",
+                "name": "生命周期",
+                "orderSeq": 4,
+                "target": "/lifeCycle",
+                "status": 1,
+                "selected": null,
+            }
+        ]
     }
 ]
 
@@ -50,8 +70,9 @@ class NaviItem extends Component {
     clickHandle = () => {
         const { navi, expandHandle, history } = this.props
         if (navi.children == null) {
-            history.push(navi.target)
+            // history.push(navi.target)
         }
+        history.push(navi.target)
         expandHandle(navi.id)
     }
     render() {
@@ -106,6 +127,7 @@ export default class SideNavi extends Component{
     render(){
         const {naviInfo} =this.state
         const {history} =this.props
+        // console.log(history,'history')
         return <div className='naviBox'>
             <div className="avatar">
                 <img src="http://img.zcool.cn/community/01ee0d5544f1380000019ae9895b3f.jpg@1280w_1l_2o_100sh.jpg" alt="" />
