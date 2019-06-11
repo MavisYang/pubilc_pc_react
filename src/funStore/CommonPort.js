@@ -31,7 +31,6 @@ export const problem_export=(params)=>{
 export const problems=(url,params)=>{
     return AxiosCore.request({url: API_URL.problems, method: 'GET', isAuth:false})
 }
-
 /** 问题反馈 */
 export const export_excel=(url,params,filename)=>{
     return Axios({

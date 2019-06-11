@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component,Fragment} from 'react'
 import Input from '../shareComponents/input/Input'
 import RangePicker from '../shareComponents/rangePicker/RangePicker'
 import SelectBox from '../shareComponents/selectBox/SelectBox'
@@ -8,6 +8,8 @@ import DownloadFile from '../../funStore/DownloadFile'
 import Table from './Table'
 import {API_URL} from "../../constants/Api";
 import '../../assets/css/reviewIndex.scss'
+import LazyLoad from "react-lazy-load";
+
 export default class FeedbackMain extends Component{
     constructor(props){
         super(props)
@@ -87,6 +89,7 @@ export default class FeedbackMain extends Component{
     render(){
         const {params,pageInfo,listData} =this.state
         return <div className='review-container'>
+
             <div className="searchBar">
                 <Input label={'手机号码：'}  maxLength={11} name={'phone'} placeholder={'请输入手机号'} value={params.phone} handleChange={this.setParamasHandle}/>
                 <SelectBox
@@ -107,6 +110,7 @@ export default class FeedbackMain extends Component{
                     <div className="searchBtn" onClick={()=>this.getQuestList(pageInfo.page_size)}>搜索</div>
                 </div>
             </div>
+
             <div className="tableArea">
                 <div className="operateArea">
                     <div className='operate-left'>
@@ -130,7 +134,18 @@ export default class FeedbackMain extends Component{
                             pullData={this.pullData}
                         />:''
                 }
+
             </div>
+            {/*<Fragment>*/}
+                {/*<h1>我是延时加载出来的</h1>*/}
+                {/*<LazyLoad>*/}
+                    {/*<img src="/images/logo.png" alt=""/>*/}
+                {/*</LazyLoad>*/}
+                {/*<LazyLoad>*/}
+                    {/*<img src="http://pic.nipic.com/2007-11-09/200711912453162_2.jpg" alt=""/>*/}
+                {/*</LazyLoad>*/}
+                {/*<h1>我是延时加载出来的</h1>*/}
+            {/*</Fragment>*/}
         </div>
     }
 }

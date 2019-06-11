@@ -1,5 +1,3 @@
-import React from 'react'
-import {review_export} from "../funStore/CommonPort";
 export const API_URL = {
     auth:'/auth',                           //获取token
 
