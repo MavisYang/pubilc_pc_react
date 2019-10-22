@@ -1,3 +1,43 @@
+### 群宠后台审核
+
+#### react-lazy-load懒加载
+
+```
+import LazyLoad from "react-lazy-load";
+<LazyLoad>
+    <img src="/images/logo.png" alt=""/>
+</LazyLoad>
+```
+
+注意：现在react 提供了懒加载
+```
+import React,{Suspense, lazy } from 'react'
+const Loading = <PageLoading/>
+const Login = lazy(() => import('./containers/Login'));
+
+render(
+    <Provider store={store}>
+        {/* ConnectedRouter will use the store from Provider automatically */}
+        <ConnectedRouter history={history}>
+            <Suspense fallback={Loading}>
+                <Switch>
+                    <Route path="/v2/offline" component={LoginAgain}/>
+                    <Route path="/v2/HPScope/:firstMenu?/:secondMenu?" component={HPScope}/>
+                    <Route path="/v2/404" component={Error404}/>
+                    <Route path="/v2" component={MainScope}/>
+                    <Route component={Error404}/>
+                </Switch>
+            </Suspense>
+        </ConnectedRouter>
+    </Provider>,
+    document.getElementById('root')
+)
+```
+
+#### 新的生命周期学习
+查看：`/pubilc_pc_react/src/components/otherComponent/`
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

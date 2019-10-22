@@ -25,21 +25,17 @@ export const store=createStore(
     reducers,
     applyMiddleware(middleware)
     // compose(applyMiddleware(middleware),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) //插件调试，未安装会报错
-
 )
 
+//store:
 
+// store.getState()
 
-store.getState()
+// store.dispatch({
+//     type:'DIS',
+//     num:1
+// })
 
-// console.log(store.getState())
-
-store.dispatch({
-    type:'DIS',
-    num:1
-})
-
-// console.log(store,'store')
 const MainScope = ({history}) => {
     return (
         <div className="container">

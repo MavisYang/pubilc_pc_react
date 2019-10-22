@@ -91,7 +91,7 @@ export default class OldLifeCycle extends Component{
                 {
                     tableList.map((v,i)=>(
                         <tr key={i}>
-                            <td rowspan="2">{v.name}</td>
+                            <td rowSpan="2">{v.name}</td>
                             <td>{v.num}</td>
                             {/*<td>{v.age}</td>*/}
                         </tr>
@@ -100,7 +100,7 @@ export default class OldLifeCycle extends Component{
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="2">name</td>
+                    <td colSpan="2">name</td>
                     <td>age</td>
                 </tr>
 
